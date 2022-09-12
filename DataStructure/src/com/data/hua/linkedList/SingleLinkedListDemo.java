@@ -6,21 +6,11 @@ public class SingleLinkedListDemo {
     }
 }
 
-/**
- * ¶¨ÒåÒ»¸öµ¥Á´±í¹ÜÀíÓ¢ĞÛ½ÚµãHeroNode
- */
+
 class SingleLinkedList{
-    //ÏÈ³õÊ¼»¯Ò»¸öÍ·½Úµã£¬²»¶¯ÇÒ²»´æ·ÅÊı¾İ
     private HeroNode head = new HeroNode(0,"","");
-
-    /**
-     * Ìí¼Ó½Úµãµ½µ±Ç°Á´±í¡£Ë¼Â·£ºÕÒµ½µ±Ç°Á´±íµÄ×îºó½Úµã£¬½«Õâ¸ö½ÚµãµÄnextÖ¸ÏòĞÂµÄ½Úµã
-     */
-
     public void add(HeroNode heroNode){
-       //ÒòÎªhead½Úµã²»ÄÜ¶¯£¬ËùÒÔÎÒÃÇĞèÒªÒ»¸ö¸¨Öú±éÀútemp
         HeroNode temp = head;
-        //±éÀúÁ´±í£¬ÕÒµ½×îºó
         while (true) {
             if (temp.next == null){
                 break;
@@ -29,10 +19,10 @@ class SingleLinkedList{
         }
         temp.next = heroNode;
     }
-    //ÏÔÊ¾Á´±í
+ 
     public void list(){
         if (head.next == null){
-            System.out.println("Á´±íÎª¿Õ");
+            System.out.println("é“¾è¡¨ä¸ºç©º");
             return;
         }
         HeroNode temp = head.next;
@@ -40,12 +30,42 @@ class SingleLinkedList{
             if (temp == null){
                 break;
             }
-            //Êä³ö½ÚµãĞÅÏ¢
             System.out.println(temp);
-            //½«tempºóÒÆ
             temp = temp.next;
         }
     }
+    
+    public void addByOrder(HeroNode heroNode){
+        //å¤´èŠ‚ç‚¹ä¸èƒ½ç§»åŠ¨æ‰€ä»¥éœ€è¦ä¸€ä¸ªè¾…åŠ©å˜é‡tempï¼Œå•é“¾è¡¨æ’å…¥éœ€è¦ç§»åŠ¨è‡³æ’å…¥ä½ç½®å‰ä¸€ä¸ªå…ƒç´ 
+        HeroNode temp =head;
+        boolean flag =false;//é»˜è®¤æ’å…¥ä½ç½®ç¼–å·ä¸å­˜åœ¨
+        while(true){
+            if(temp.next == null){
+                break;//è¯´æ˜å·²ç»åˆ°æœ«å°¾
+            }
+            if(temp.next.no > heroNode.no){
+                break;
+            }else if(temp.next.no == heroNode.no){
+                flag = true;
+                break;
+            }
+            temp = temp.next;
+        }
+        if(flag){
+            System.out.println("æ‰€æ’å…¥ç¼–å·çš„å…ƒç´ å·²å­˜åœ¨");
+        }else{
+            heroNode.next = temp.next;
+            temp.next = heroNode;
+        }  
+
+
+
+
+
+
+
+    }
+
 }
 
 
@@ -56,7 +76,6 @@ class HeroNode{
     public String name;
     public String nickName;
     public HeroNode next;
-    //¹¹ÔìÆ÷
     public HeroNode(int hNo,String hName,String hNickname) {
         this.no = hNo;
         this.name = hName;
