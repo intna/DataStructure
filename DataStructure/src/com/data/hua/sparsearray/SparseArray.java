@@ -1,8 +1,6 @@
 package com.data.hua.sparsearray;
 
-/**
- * 稀疏数组
- */
+
 public class SparseArray {
     public static void main(String[] args) {
         int chessArr1[][] = new int[11][11];
@@ -15,9 +13,7 @@ public class SparseArray {
             System.out.println();
         }
 
-        /**
-         * 遍历二维数组，将非零值放入稀疏数组
-         */
+    
         int sum = 0;
         for (int i = 0; i < 11; i++) {
             for (int j = 0; j < 11; j++) {
@@ -43,10 +39,9 @@ public class SparseArray {
             }
         }
 
-        //输出稀疏数组
-        //方法一：使用两层for循环，外层遍历行，在行中遍历列
+        
         System.out.println();
-        System.out.println("得到的稀疏数组为************");
+        System.out.println("锟矫碉拷锟斤拷稀锟斤拷锟斤拷锟斤拷为************");
         for (int[] row: sparseArr){
             for (int data: row){
                 System.out.printf("%d\t", data);
@@ -55,12 +50,12 @@ public class SparseArray {
         }
 
         System.out.println("*****************");
-        //方法二：使用一个for循环，遍历每一行，输出每一行的每一列
+        
         for (int i = 0;i<sparseArr.length;i++){
             System.out.printf("%d\t%d\t%d\t\n",sparseArr[i][0],sparseArr[i][1],sparseArr[i][2]);
         }
 
-        //将稀疏数组恢复成原始的二维数组,先根据稀疏数组第一行的值创建二维数组，再根据后面的值赋给二维数组的对应位置
+       
         int a = sparseArr[0][0];
         int b = sparseArr[0][1];
         int chessArr2 [][] = new int[a][b];
@@ -69,7 +64,7 @@ public class SparseArray {
             System.out.println();
         }
 
-        //遍历恢复后的二维数组
+        
         for (int[] row : chessArr1) {
             for (int data : row) {
                 System.out.printf("%d\t", data);

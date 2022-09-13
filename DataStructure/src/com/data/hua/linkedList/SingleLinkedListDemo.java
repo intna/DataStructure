@@ -1,5 +1,6 @@
 package com.data.hua.linkedList;
 
+
 public class SingleLinkedListDemo {
     public static void main(String[] args) {
 
@@ -57,14 +58,28 @@ class SingleLinkedList{
             heroNode.next = temp.next;
             temp.next = heroNode;
         }  
-
-
-
-
-
-
-
     }
+
+    //按序号删除节点
+    public void delete(int no){
+        HeroNode temp = head;
+        boolean flag = false;
+        while(true){
+          if(temp.next==null) {
+             break;
+          }
+          if(temp.next.no==no){
+             flag = true;
+             break;
+          }
+          temp = temp.next;
+        }
+        if(flag){
+           temp=temp.next.next;
+        }else{
+           System.out.println("没找到");
+       }
+}
 
 }
 

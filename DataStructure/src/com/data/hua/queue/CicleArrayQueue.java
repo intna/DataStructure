@@ -4,32 +4,32 @@ import java.util.Scanner;
 
 public class CicleArrayQueue {
     public static void main(String[] args) {
-        System.out.println("²âÊÔÊý×éÄ£Äâ»·ÐÎ¶ÓÁÐµÄ°¸Àý");
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä£ï¿½â»·ï¿½Î¶ï¿½ï¿½ÐµÄ°ï¿½ï¿½ï¿½");
         CicleArray arrayQueue = new CicleArray(3);
         char key = ' ';
         Scanner scanner = new Scanner(System.in);
         boolean loop = true;
-        //Êä³öÒ»¸ö²Ëµ¥
+        
         while (loop) {
-            System.out.println("s: ÏÔÊ¾¶ÓÁÐ");
-            System.out.println("e: ÍË³ö³ÌÐò");
-            System.out.println("a: Ìí¼ÓÊý¾Ý");
-            System.out.println("g: È¡³öÊý¾Ý");
-            System.out.println("p: ²é¿´Í·²¿Êý¾Ý");
+            System.out.println("s: ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½");
+            System.out.println("e: ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½");
+            System.out.println("a: ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+            System.out.println("g: È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+            System.out.println("p: ï¿½é¿´Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             key = scanner.next().charAt(0);
             switch (key) {
                 case 's':
                     arrayQueue.showQueue();
                     break;
                 case 'a':
-                    System.out.println("ÇëÊäÈëÒªÌí¼ÓµÄÊý");
+                    System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½");
                     int value = scanner.nextInt();
                     arrayQueue.addQueue(value);
                     break;
                 case 'g':
                     try {
                         int res = arrayQueue.getData();
-                        System.out.printf("È¡³öµÄÊý¾ÝÊÇ%d\n", res);
+                        System.out.printf("È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%d\n", res);
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -37,7 +37,7 @@ public class CicleArrayQueue {
                 case 'p':
                     try {
                         int res = arrayQueue.peek();
-                        System.out.printf("Í·²¿µÄÊý¾ÝÊÇ%d\n", res);
+                        System.out.printf("Í·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%d\n", res);
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -66,43 +66,43 @@ class CicleArray {
         rear = 0;
     }
 
-    //ÅÐ¶Ï¶ÓÁÐÊÇ·ñÂú
+    
     public boolean isFull() {
         return (rear + 1) % maxSize == front;
     }
 
-    //ÅÐ¶Ï¶ÓÁÐÊÇ·ñÎª¿Õ
+  
     public boolean isEmpty() {
         return rear == front;
     }
 
-    //Ìí¼ÓÊý¾Ýµ½¶ÓÁÐ
+    
     public void addQueue(int n) {
         if (isFull()) {
-            System.out.println("¶ÓÁÐÒÑÂú²»ÄÜ¼ÓÈëÊý¾Ý");
+            System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ü¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             return;
         }
         arr[rear] = n;
-        //½«rearºóÒÆ£¬ÕâÀï±ØÐëÈ¡Ä££¬ÒòÎªÊÇ»·ÐÎ¶ÓÁÐ¿ÉÄÜ»Øµ½Í·²¿¡£
+        
         rear = (rear + 1) % maxSize;
     }
 
-    //³ö¶ÓÁÐ
+  
     public int getData() {
         if (isEmpty()) {
-            throw new RuntimeException("¶ÓÁÐÎª¿Õ");
+            throw new RuntimeException("ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½");
         }
-        //ÏÈ½«ÒªÈ¡³öµÄÔªËØ·ÅÈëÒ»¸ö±äÁ¿±£´æ£¬ÔÙ½«frontºóÒÆ
+       
         int value = arr[front];
         front = (front + 1) % maxSize;
         return value;
     }
 
 
-    //±éÀú¶ÓÁÐ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public void showQueue() {
         if (isEmpty()) {
-            System.out.println("¶ÓÁÐÎª¿Õ£¬Ã»ÓÐÊý¾Ý");
+            System.out.println("ï¿½ï¿½ï¿½ï¿½Îªï¿½Õ£ï¿½Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
             return;
         }
         for (int i = front; i < front + size(); i++) {
@@ -110,15 +110,15 @@ class CicleArray {
         }
     }
 
-    //Çó³öµ±Ç°¶ÓÁÐÓÐÐ§¸öÊýµÄÖµ£¬¹©±éÀú»·ÐÎ¶ÓÁÐÊ¹ÓÃ
+    //ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¶ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
     public int size() {
         return (rear + maxSize - front) % maxSize;
     }
 
-    //ÏÔÊ¾¶ÓÁÐµÄÍ·Êý¾Ý
+    //ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ðµï¿½Í·ï¿½ï¿½ï¿½ï¿½
     public int peek() {
         if (isEmpty()) {
-            throw new RuntimeException("¶ÓÁÐÎª¿Õ²»ÄÜÈ¡Êý¾Ý");
+            throw new RuntimeException("ï¿½ï¿½ï¿½ï¿½Îªï¿½Õ²ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½");
         }
         return arr[front];
     }
