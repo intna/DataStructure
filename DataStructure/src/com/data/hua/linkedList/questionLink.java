@@ -3,7 +3,7 @@ package com.data.hua.linkedList;
 import java.util.Stack;
 
 class questionLink{
-    private HeroNode head = new HeroNode(0,"","");
+  
 
     /**
      * 单链表面试题
