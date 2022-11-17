@@ -88,7 +88,7 @@ class CricleSingleLinkedList{
 
 
     }
-}
+
 
 //创建一个boy类表示结点
 class Boy{
